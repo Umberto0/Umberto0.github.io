@@ -1,0 +1,53 @@
+<!doctype html>
+    <html lang="it">
+        <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scalet=1">
+        <title>Pagina Javascript</title>
+        <style>
+            html, body { margin: 0; padding: 0; }
+            canvas { display: block; }
+        </style>
+    </head>
+        <body>
+          <script>
+          function setup() {
+            createCanvas(600, 400);
+ }
+
+                  function draw() {
+                    background(220);
+                    line(300,0,300,400);
+                    //braccia del robot
+                    fill(100,100,100);
+                    square(mouseX-35,mouseY-80,70,7);
+                    //corpo del robot
+                    fill(100,100,100);
+                    square(mouseX-50,mouseY-10,100,5);
+                    // gambe del robot
+                    fill(0,200,250);
+                    rect(mouseX-35,mouseY+85,22,80);
+                    rect(mouseX+15,mouseY+85,22,80);
+                    //braccia del robot
+                    fill(0,200,250);
+                    rect(mouseX-70,mouseY-2,20,70);
+                    rect(mouseX+50,mouseY-2,20,70);
+                    //antenne del robot
+                    fill(255,50,50);
+                      line(mouseX-50,mouseY-147,mouseX-10,mouseY-80);
+                    line(mouseX+50,mouseY-147,mouseX+10,mouseY-80);
+                    //occhi del robot
+                    fill(0,200,250);
+                    square(mouseX-18,mouseY-72,15,5);
+                    square(mouseX+5,mouseY-72,15,5);
+                    //bocca del robot
+                    fill(0,100,250);
+                    circle(mouseX+1,mouseY-31,20);
+                    //naso del robot
+                    fill(255,150,0);
+                    circle(mouseX+1,mouseY-50,10);
+                  }
+        </script>
+        </body>
+    </html>
