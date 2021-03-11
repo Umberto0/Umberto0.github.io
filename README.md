@@ -1,1 +1,2 @@
 # Umberto0.github.io
+[![Validate HTML](https://github.com/Umberto0/Umberto0.github.io/actions/workflows/html-validate.yml/badge.svg)](https://github.com/Umberto0/Umberto0.github.io/actions/workflows/html-validate.yml)
