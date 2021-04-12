@@ -1,0 +1,73 @@
+<!Doctype.html>
+   <html lang="it">
+   <head>
+     <meta name="viewport"  content="width=device-width, initial scalet=1">
+     <meta charset="UTF-8/">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"> </script>
+      <title> GIOCO CON PALLINE </title>
+      <style>
+         html,body{margin:0; padding: 0;}
+         canvas {display: block;}
+         </style>
+       </head>
+       <body>
+    <script>
+          //coordinata Y delle palline
+          let arrayY=[];
+          //coordinata X delle palline
+           let arrayX=[];
+          // indice
+           let i=0;
+          //coordinata della racchetta
+          let rectX=0;
+          let score=0;
+            function setup() {
+             //abbiamo inserito una variabile  in modo tale da far apparire le palline verticalmente
+             for(i=0;i<20;i++){
+               arrayY[i]= Math.random() *-600;
+               }
+              //abbiamo inserito una variabile in modo tale da far apparire le palline in tutto il campo orizzontalmente
+             for(i=0;i<20;i++){
+                 arrayX[i]= Math.random() *600;
+               }
+             createCanvas(600,600);
+            }
+            function draw() {
+              background(190,190,250);
+                 //variabile per far muovere la racchetta con il mouse
+                 rectX=mouseX-50;
+                  //funzione per la creazione delle palline
+                   for(i=0;i<20;i++){
+                     circle(arrayX[i],arrayY[i],40);
+                 }
+                 //qui abbiamo regoliamo la velocità delle palline
+                      for(i=0;i<20;i++){
+                          arrayY[i]=arrayY[i]+2;
+                      }
+                 //abbiamo creato un cilco for  e degli if per far in modo che se la coordinata Y della pallina sia maggiore o uguale di 530 e se la coordinata X delle palline sia minore o uguale di 545 allora la coordinata Y delle palline sia uguale a -100
+                   for(i=0;i<20;i++){
+                      if(arrayY[i]>=530){
+                          if(arrayX[i]<rectX+190 && arrayX[i]>rectX-6){
+                              if(arrayY[i]<=545){
+                                arrayY[i]=-100;
+                                score++;
+                              }
+                            }
+                          }
+                        }
+                       fill(200,100,30);
+                       text("score:" + score,520,20);
+                       //se la coordinata X della racchetta è maggiore o pari a 0 allora questa rimarrà a 0 e non andrà oltre (bordo sinistro)
+                        if(rectX<=0){
+                          rectX=0;
+                        }
+                  //se la coordinata X della racchetta è maggiore o uguale a 500 questa allora rimarrà a 500 e non andrà oltre (bordo destro)
+                   if(rectX>=500){
+                        rectX=500;
+                      }
+                     fill(100,20,30)
+                     rect(rectX,550,100,20);
+                   }
+         </script>
+       </body>
+   </html>
