@@ -1,0 +1,116 @@
+<!doctype html>
+    <html lang="it">
+        <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scalet=1">
+        <title>Pagina Javascript</title>
+        <style>
+            html, body { margin: 0; padding: 0; }
+            canvas { display: block; }
+        </style>
+    </head>
+        <body>
+        
+
+          <script>
+                    let rectY=0;
+                    let rectX=0;
+                    let cX=100;
+                    let cY=30;
+                    let incrementoY=5;
+                    let incrementoX=5;
+                    let tasto;
+                    const asseY=150;
+                    let score=0;
+                    function setup() {
+                      createCanvas(400, 400);
+                    }
+
+                    function draw() {
+                      tasto=key;
+                      background(0,200,0);
+                        switch(tasto){
+                            //se premi il tasto m apri il menù
+                          case "m":
+                            fill(255,255,255);
+                      textSize(30);
+                      textStyle(BOLD);
+                      text("PONG GAME",110,70);
+                      textStyle(BOLDITALIC);
+                      textSize(20);
+                      text("gioca",asseY,100);
+                      text("impostazioni",asseY,130);
+                      text("seleziona difficoltà:",asseY,160);
+                      textStyle(ITALIC);
+                      text("facile",asseY,190);
+                      text("normale",asseY,220);
+                      text("difficile",asseY,250);
+                      text("molto difficile",asseY,280);
+                      textStyle(BOLDITALIC);
+                      text("esci dal gioco",asseY,310);
+                      text("creatore del gioco:",20,340);
+                      text("Umberto Villano",50,370)
+                       break;
+                       //se premiamo il tasto p metteremo in pausa
+                        case 'p':
+                            textSize(20);
+                            fill(255,255,255);
+                            text("pausa",100,200);
+                            break;
+                            //se premiamo il tasto g allora inizieremo a giocare al gioco
+                        case'g':
+                            //scriviamo mouseY-50 per far si che il cursore si posizioni perfettamente nel centro della racchetta per farla muovere
+                       rectY=mouseY-50;
+
+                      //se la coordinata y dell'angolo in alto a sinistra della racchetta (rectY) è <=0 allora rectY assume valore 0
+                      if(rectY<=0){
+                        rectY=0;
+                      }
+                        //se la coordinata y dell'angolo in basso a sinistra della racchetta (rectY) è >=300 allora rectY assume valore 300
+
+                      if(rectY>=300){
+                        rectY=300;
+                      }
+
+                      //se la pallina tocca il bordo destro,rimbalza
+                      if(cX>=378){
+                        incrementoX=-incrementoX;
+                      }
+                      //se la pallina tocca il bordo superiore,rimbalza
+                      if(cY<=20){
+                        incrementoY=-incrementoY;
+                      }
+                      //se la pallina tocca il bordo sinistro,rimbalza
+                      if(cX<=10){
+                        incrementoX=-incrementoX;
+                      }
+                      //se la pallina tocca il bordo inferiore,rimbalza
+                      if(cY>=378){
+                        incrementoY=-incrementoY;
+                       }
+                            //abbiamo inserito un'if per far in modo che la pallina quando tocca il bordo sinistro rimbalza e se invece tocca la racchetta la pallina rimbalza su di essa e tornerà indietro
+                            if(cX<=75){
+                              if(cY<rectY+100 && cY>rectY){
+                               incrementoX=-incrementoX;
+                                score++;
+                              }
+                            }
+                             //abbiamo insterito uno score per vedere i nostri punti
+                            text("score:"+score,320,20);
+                      cX=cX+incrementoX;
+                      cY=cY+incrementoY;
+
+                      rect(30,rectY,20,100);
+                      fill(200,40,90);
+                      circle(cX,cY,50);
+
+                        break;
+                        default:
+                      text('hai sbagliato tasto',100,200);
+                    }
+                  }
+
+          </script>
+        </body>
+    </html>
