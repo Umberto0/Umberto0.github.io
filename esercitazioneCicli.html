@@ -1,0 +1,57 @@
+<!doctype html>
+    <html lang="it">
+        <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scalet=1">
+        <title>Pagina Javascript</title>
+        <style>
+            html, body { margin: 0; padding: 0; }
+            canvas { display: block; }
+        </style>
+    </head>
+        <body>
+          <script>
+                Y=0;
+      function setup() {
+        createCanvas(400, 400);
+        }
+
+            function draw() {
+              background(200,100,100);
+              //PER REALIZZARE UN CICLO BISOGNA AVERE:
+              //UNA CONDIZIONE INIZIALE Y=30
+              //UNA CONDIZIONE FINALE Y<=380
+              //UN'ISTRUZIONE DI INCREMENTO Y=Y+50
+              //UN BLOCCO DI ISTRUZIONI GENERICO: circle(25,y,50);
+              fill(255,0,0);
+               for(Y=30;Y<=380;Y=Y+50){
+                 circle(30,Y,50);
+                  }
+              //PER REALIZZARE UN CICLO BISOGNA AVERE:
+              //UNA CONDIZIONE INIZIALE Y=30
+              //UNA CONDIZIONE FINALE Y<=380
+              //UN'ISTRUZIONE DI INCREMENTO Y=Y+50
+              //UN BLOCCO DI ISTRUZIONI GENERICO: circle(25,y,50);
+              fill(0,100,50);
+              Y=30;
+              do{
+                circle(80,Y,50);
+                Y=Y+50
+              }while(Y<=380);
+               //PER REALIZZARE UN CICLO BISOGNA AVERE:
+              //UNA CONDIZIONE INIZIALE Y=30
+              //UNA CONDIZIONE FINALE Y<=380
+              //UN'ISTRUZIONE DI INCREMENTO Y=Y+50
+              //UN BLOCCO DI ISTRUZIONI GENERICO: circle(25,y,50);
+              fill(0,100,200);
+              Y=30;
+              while(Y<=380) {
+               circle(130,Y,50);
+                Y=Y+50;
+          }     
+    }
+
+          </script>
+        </body>
+    </html>
